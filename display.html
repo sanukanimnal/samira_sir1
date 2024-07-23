@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Entry</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const entriesContainer = document.getElementById('entries');
+    let entries = JSON.parse(localStorage.getItem('entries')) || [];
+
+    if (entries.length === 0) {
+        entriesContainer.innerText = "No entries found.";
+    } else {
+        entries.forEach(entry => {
+            const entryElement = document.createElement('p');
+            entryElement.textContent = entry;
+            entriesContainer.appendChild(entryElement);
+        });
+    }
+});
+
+    </script>
+</head>
+<body>
+    <h1>Saved Entries</h1>
+    <div id="entries"></div>
+</body>
+</html>
